@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "geist";
+  src: url("/fonts/geist.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "geistMono";
+  src: url("/fonts/geist-mono.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+:root,
+[data-theme="dark"] {
+  --bg: #0a0a0f;
+  --bg-deep: #050508;
+  --surface: #15151e;
+  --surface-2: #1e1e2a;
+  --border: #f2f1f717;
+  --border-strong: #f2f1f729;
+  --fg: #f2f1f7;
+  --muted: #9c99ab;
+  --faint: #5a5768;
+  --accent: #8b7bff;
+  --accent-bright: #ac9fff;
+  --accent-deep: #5a45d6;
+  --accent-ink: #100b26;
+  --accent-tint: #8b7bff1f;
+  --accent-glow: #7c5cff73;
+  --cream: #f2f1f7;
+  --cream-ink: #100b26;
+  --on-dark: #f5f4fa;
+  --sheen-rgb: 255, 255, 255;
+}
+
+[data-theme="light"] {
+  --bg: #f6f5fa;
+  --bg-deep: #ececf5;
+  --surface: #ffffff;
+  --surface-2: #f0eff8;
+  --border: #14121f14;
+  --border-strong: #14121f24;
+  --fg: #14121f;
+  --muted: #55536a;
+  --faint: #8b899c;
+  --accent: #6f5cf0;
+  --accent-bright: #8f7dff;
+  --accent-deep: #4633b0;
+  --accent-ink: #ffffff;
+  --accent-tint: #6f5cf01a;
+  --accent-glow: #6f5cf059;
+  --cream: #14121f;
+  --cream-ink: #f6f5fa;
+  --sheen-rgb: 20, 18, 31;
+}
+
+html {
+  background: var(--bg);
+  scrollbar-color: var(--faint) var(--bg);
+  overflow-x: clip;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "geist", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01" on, "cv11" on;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.display {
+  font-family: "geist", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 650;
+}
+
+.eyebrow {
+  font-family: "geistMono", ui-monospace, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.text-glint {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-bright) 55%, var(--fg) 115%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.outline-num {
+  font-family: "geist", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border-strong);
+  user-select: none;
+  font-weight: 700;
+}
+
+a.link {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--faint);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
+}
+a.link:hover {
+  text-decoration-color: var(--accent);
+}
+
+.glass {
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  background: linear-gradient(rgba(var(--sheen-rgb), 0.09), rgba(var(--sheen-rgb), 0.035));
+  border: 1px solid rgba(var(--sheen-rgb), 0.16);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.28), inset 0 1px rgba(var(--sheen-rgb), 0.14),
+    inset 0 -1px rgba(0, 0, 0, 0.16);
+}
+
+.glass-dark {
+  background: linear-gradient(
+      160deg,
+      color-mix(in oklch, var(--accent) 30%, transparent),
+      color-mix(in oklch, var(--accent-deep) 14%, transparent)
+    ),
+    #0b09089e;
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid color-mix(in oklch, var(--accent-bright) 38%, transparent);
+  box-shadow: 0 10px 36px var(--accent-glow), inset 0 1px 0 #ffffff38;
+}
+
+.glass-accent {
+  background: linear-gradient(
+    160deg,
+    color-mix(in oklch, var(--accent) 34%, transparent),
+    color-mix(in oklch, var(--accent-deep) 16%, transparent)
+  );
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid color-mix(in oklch, var(--accent-bright) 42%, transparent);
+  box-shadow: 0 14px 44px var(--accent-glow), inset 0 1px 0 rgba(var(--sheen-rgb), 0.28), inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--sheen-rgb), 0.16) 45%,
+    rgba(var(--sheen-rgb), 0.34) 50%,
+    rgba(var(--sheen-rgb), 0.16) 55%,
+    transparent
+  );
+  width: 55%;
+  transition: opacity 0.2s;
+  position: absolute;
+  inset: -40% auto -40% -70%;
+  transform: skew(-22deg) translateX(0);
+}
+.shine:hover::after {
+  opacity: 1;
+  animation: shine-sweep 0.85s cubic-bezier(0.3, 0.6, 0.3, 1) forwards;
+}
+@keyframes shine-sweep {
+  to {
+    transform: skew(-22deg) translateX(420%);
+  }
+}
+
+.spot {
+  position: relative;
+}
+.spot::before {
+  content: "";
+  border-radius: inherit;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--sheen-rgb), 0.1), transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+  position: absolute;
+  inset: 0;
+}
+.spot:hover::before {
+  opacity: 1;
+}
+
+.aurora {
+  pointer-events: none;
+  background: radial-gradient(42% 46% at 18% 22%, var(--accent-tint) 0%, transparent 65%),
+    radial-gradient(36% 42% at 85% 12%, #65396f21 0%, transparent 70%),
+    radial-gradient(50% 55% at 75% 90%, var(--accent-deep) 0%, transparent 70%);
+  position: absolute;
+  inset: -20%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
