@@ -1,8 +1,8 @@
 {
-  "version": "0.0.1",
+  "version": "0.1.0",
   "configurations": [
     {
-      "name": "deb-clone",
+      "name": "azilefco@0.1.0",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "5183"],
       "port": 5183
