@@ -1,0 +1,49 @@
+<script setup lang="ts">
+import Reveal from "./Reveal.vue";
+import LineReveal from "./LineReveal.vue";
+import ArrowIcon from "./ArrowIcon.vue";
+</script>
+
+<template>
+  <section class="relative overflow-hidden py-28 pb-36 sm:py-36">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute bottom-0 left-1/2 h-[34rem] w-[70rem] -translate-x-1/2 translate-y-1/3 rounded-full opacity-70 blur-3xl"
+      :style="{ background: 'radial-gradient(ellipse, var(--accent-glow), transparent 65%)' }"
+    />
+    <div class="relative mx-auto max-w-container px-5 sm:px-7">
+      <Reveal>
+        <div class="rounded-[2rem] bg-cream px-7 py-16 text-center text-cream-ink shadow-[0_40px_120px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.6)] sm:px-14 sm:py-24">
+          <p class="font-mono text-[11px] tracking-[0.26em] uppercase opacity-55">&middot; Still here? &middot;</p>
+          <h2 class="display mt-7 text-[clamp(3rem,8.5vw,7.5rem)] leading-[0.95]">
+            <LineReveal :lines="['Got something', 'worth building?']" />
+          </h2>
+          <p class="mx-auto mt-7 max-w-[46ch] text-[16.5px] leading-relaxed opacity-70">
+            Tell me the idea. I'll tell you if it's genius or unhinged. Reply within 24 hours,
+            either way.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-5">
+            <a
+              href="mailto:azilefco@gmail.com"
+              class="shine inline-flex items-center gap-3.5 rounded-full bg-cream-ink py-2.5 pr-2.5 pl-7 text-[15.5px] font-medium text-cream shadow-xl shadow-black/25 transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              Let's do this
+              <span
+                class="flex size-[38px] items-center justify-center rounded-full bg-accent text-accent-ink shadow-[0_4px_14px_var(--accent-glow)]"
+                aria-hidden="true"
+              >
+                <ArrowIcon />
+              </span>
+            </a>
+            <a
+              href="mailto:azilefco@gmail.com"
+              class="link inline-block py-2 font-mono text-[13px] tracking-[0.04em] !text-cream-ink/70 hover:!text-cream-ink"
+            >
+              azilefco@gmail.com
+            </a>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+</template>
